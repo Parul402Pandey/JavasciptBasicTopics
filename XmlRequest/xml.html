@@ -1,0 +1,43 @@
+//XMLHttpRequest() way to hit the server
+//create a request
+//var xhr=null;;
+<html>
+    <head>
+        </head>
+        <body>
+<script>
+function data()
+{
+//var xhr = require("xmlhttprequest").XMLHttpRequest;
+let xhr = new XMLHttpRequest();
+//Syntax:-xhr.open(method, URL, [async, user, password])
+xhr.open('Get',"https://usconfigr56.dayforcehcm.com/Api/ddn/V1/Employees","","");
+xhr.setRequestHeader('Authorization', 'Basic REZXU1Rlc3Q6REZXU1Rlc3Q=');
+//response type is set as:-
+//xhr.responseType='application/json';
+// all headers saved as key value pair as:
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.send();
+//when request is send three method called
+//onload() ,  onprogress()  ,   onerror()
+xhr.onload=function()
+{
+    if(xhr.status!=200)
+    {
+        console.log(xhr.statusText);
+    }
+    else{
+        var response=xhr.responseText;
+        console.log(responseText);
+    }
+
+};
+xhr.onerror=function()
+{
+    console.log("request failed");
+}
+}
+console.log(data());
+</script>
+</body>
+</html>
